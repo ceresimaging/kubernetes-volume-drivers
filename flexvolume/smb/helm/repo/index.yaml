@@ -3,11 +3,20 @@ entries:
   smb-flexvol:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-04-28T18:01:29.581621-10:00"
+    created: "2020-04-29T22:50:42.529276-10:00"
+    description: A Helm chart for adding a smb-flexvol to a Kubernetes cluster
+    digest: 7ce6fe9c40066411fdf0169b9e6ef3163c98d1daf07e37bae8cc3b8799eeb502
+    name: smb-flexvol
+    urls:
+    - smb-flexvol-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-04-29T22:50:42.52901-10:00"
     description: A Helm chart for adding a smb-flexvol to a Kubernetes cluster
     digest: 828cb46063cbfcad2e3d1961c0067dbcc800b56afbe7a2dfd2d59ed8677f8122
     name: smb-flexvol
     urls:
     - smb-flexvol-0.1.0.tgz
     version: 0.1.0
-generated: "2020-04-28T18:01:29.581136-10:00"
+generated: "2020-04-29T22:50:42.528452-10:00"
