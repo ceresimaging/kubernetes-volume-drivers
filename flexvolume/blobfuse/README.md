@@ -18,7 +18,7 @@ mountoptions | other mount options | `--file-cache-timeout-in-seconds=120 --use-
 Blobfuse driver does not honor `fsGroup` securityContext setting, instead user could use `-o gid=1000` in `mountoptions` to set ownership, example [pv-blobfuse-flexvol-gid.yaml](./pv-blobfuse-flexvol-gid.yaml), check https://github.com/Azure/azure-storage-fuse#mount-options for more mountoptions.
 
 ### Latest Container Image:
-`mcr.microsoft.com/k8s/flexvolume/blobfuse-flexvolume:1.0.12`
+`mcr.microsoft.com/k8s/flexvolume/blobfuse-flexvolume:1.0.13`
 
 # Prerequisite
  - An azure storage account and a container should be created in the same region with the kubernetes cluster and storage account name, account key, container name should be provided in below example.
@@ -66,7 +66,6 @@ available sovereign cloud names(more details could be found [here](https://githu
 <youraccountname>.blob.core.chinacloudapi.cn
 <youraccountname>.blob.core.cloudapi.de
 ```
-
 
 ## 2. create a pod with blobfuse flexvolume mount on linux
 #### Option#1 Ties a flexvolume volume explicitly to a pod
@@ -157,6 +156,8 @@ Please attach log file `/var/log/blobfuse-driver.log` and file an issue
 mkdir test
 export AZURE_STORAGE_ACCOUNT=
 export AZURE_STORAGE_ACCESS_KEY=
+# only for sovereign cloud
+# export AZURE_STORAGE_BLOB_ENDPOINT=<youraccountname>.blob.core.chinacloudapi.cn
 blobfuse test --container-name=CONTAINER-NAME --tmp-path=/tmp/blobfuse -o allow_other --file-cache-timeout-in-seconds=120
 ```
 

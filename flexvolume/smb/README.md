@@ -7,7 +7,7 @@
 This driver allows Kubernetes to access SMB server by using [CIFS/SMB](https://en.wikipedia.org/wiki/Server_Message_Block) protocol.
 
 ### Latest Container Image:
-`mcr.microsoft.com/k8s/flexvolume/smb-flexvolume:1.0.2`
+`mcr.microsoft.com/k8s/flexvolume/smb-flexvolume:1.0.3`
 
 # Consider using the Helm chart for an all-in-one install
 
@@ -120,7 +120,7 @@ Name | Meaning | Example | Mandatory
 source | smb server address | `//STORAGE-ACCOUNT.file.core.windows.net/SHARE-NAME` for auzre file format | Yes
 mountoptions | mount options | `vers=3.0,dir_mode=0777,file_mode=0777` | No
 
-#### Debugging skills
+#### Debugging tips
  - Check smb flexvolume installation result on the node:
 ```
 sudo cat /var/log/smb-flexvol-installer.log
@@ -136,13 +136,11 @@ MountVolume.SetUp failed for volume "test" : invalid character 'C' looking for b
 ```
 Please attach log file `/var/log/smb-driver.log` and file an issue
 
-### Links
-[CIFS/SMB wiki](https://en.wikipedia.org/wiki/Server_Message_Block)
-
-[Flexvolume doc](https://github.com/kubernetes/community/blob/master/contributors/devel/flexvolume.md)
-
-[Persistent Storage Using FlexVolume Plug-ins](https://docs.openshift.org/latest/install_config/persistent_storage/persistent_storage_flex_volume.html)
-
 ### Developer Tip for working on Helm Chart + Docker FlexVol-Installer 
-
 Skaffold can make it easier to iteratively debug the helm chart / docker installer. See `./skaffold.yaml` for details.
+
+### Links
+ - [SMB CSI Driver](https://github.com/csi-driver/csi-driver-smb)
+ - [CIFS/SMB wiki](https://en.wikipedia.org/wiki/Server_Message_Block)
+ - [Flexvolume doc](https://github.com/kubernetes/community/blob/master/contributors/devel/flexvolume.md)
+ - [Persistent Storage Using FlexVolume Plugins](https://docs.openshift.org/latest/install_config/persistent_storage/persistent_storage_flex_volume.html)
